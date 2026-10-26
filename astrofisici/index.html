@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Facciamo che eravamo astrofisici · Contenuti extra</title>
+<meta name="description" content="Contenuti extra: siti web, gallerie di immagini e risorse multimediali che arricchiscono il viaggio nel cosmo insieme a Emma.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4f8ea4">
+<style>
+  /* Dai colori della copertina: azzurro-petrolio, arancione, nero da tavola illustrata.
+     Una scheda con contorno nero e ombra piena, come il riquadro del titolo.
+     Caratteri con licenza SIL OFL; illustrazione disegnata per questa pagina. */
+  @font-face { font-family: "Amatic SC"; src: url("fonts/amatic-sc-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+  :root {
+    --ground: #4f8ea4;
+    --card: #ffffff;
+    --ink: #0a1418;
+    --muted: #46575f;
+    --line: #b9c9cf;
+    --accent: #f05d23;
+    --shadow: #0a1418;
+    --focus: #1c5d99;
+    --hover: #eef5f7;
+    --f-display: "Amatic SC", "Arial Narrow", "Trebuchet MS", sans-serif;
+    --f-text: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0d222c; --card: #153341; --ink: #eef5f7; --muted: #a8c0ca; --line: #2f5566;
+      --accent: #ff8a4c; --shadow: #000000; --focus: #8fc2ee; --hover: #1b4254; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0d222c; --card: #153341; --ink: #eef5f7; --muted: #a8c0ca; --line: #2f5566;
+    --accent: #ff8a4c; --shadow: #000000; --focus: #8fc2ee; --hover: #1b4254; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font: 400 1.0625rem/1.55 var(--f-text);
+    padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px);
+  }
+  .pagina { max-width: 38rem; margin: 0 auto; padding-block: 24px 36px; display: grid; gap: 22px; }
+
+  .scheda {
+    background: var(--card); border: 2px solid var(--ink); border-radius: 8px;
+    box-shadow: 5px 5px 0 var(--shadow);
+  }
+
+  .titolo-libro { padding: 22px 20px 22px; }
+  .editore { margin: 0 0 12px; font: 700 .76rem/1.2 var(--f-text); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  h1 {
+    margin: 0; font: 700 clamp(3rem, 15vw, 4.5rem)/1.08 var(--f-display);
+    text-transform: uppercase; color: var(--accent); letter-spacing: .02em;
+  }
+  h1 span { display: block; }
+  .descrizione { margin: 20px 0 0; max-width: 31em; text-wrap: pretty; }
+  .descrizione strong { font-weight: 700; }
+
+  .cielo { display: block; width: 100%; height: auto; }
+
+  .risorse { padding: 6px 18px 18px; }
+  h2 {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin: 20px 0 4px; font: 700 .86rem/1.2 var(--f-text); letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+  h2 svg { flex: none; width: 22px; height: 22px; fill: var(--accent); }
+
+  .elenco { list-style: none; margin: 0; padding: 0; }
+  .elenco li { border-bottom: 2px dashed var(--line); }
+  .elenco li:last-child { border-bottom: 0; }
+  .elenco a {
+    display: grid; grid-template-columns: 3.1rem minmax(0, 1fr) 1.25rem; align-items: center; gap: 12px;
+    min-height: 66px; padding: 10px 4px; color: inherit; text-decoration: none; border-radius: 6px;
+  }
+  .elenco a:hover { background: var(--hover); }
+  .elenco a:focus-visible { outline: 3px solid var(--focus); outline-offset: 0; }
+  .num { font: 700 2.5rem/1 var(--f-display); color: var(--accent); text-align: center; font-variant-numeric: tabular-nums; }
+  .num svg { width: 1.7rem; height: 1.7rem; fill: currentColor; vertical-align: middle; }
+  .voce { min-width: 0; }
+  .nome { display: block; font-weight: 700; line-height: 1.25; }
+  .fonte { display: block; margin-top: 2px; font-size: .86rem; line-height: 1.35; color: var(--muted); }
+  .vai { width: 1.1rem; height: 1.1rem; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
+  .elenco a:hover .vai { transform: translate(2px, -2px); stroke: var(--accent); }
+
+  .piede { margin: 18px 0 0; padding-top: 14px; border-top: 2px dashed var(--line); font-size: .84rem; line-height: 1.6; color: var(--muted); }
+  .piede p { margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) { .vai { transition: none; } }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header class="scheda titolo-libro">
+    <p class="editore">Scienza Express edizioni</p>
+    <h1><span>Facciamo</span><span>che eravamo</span><span>astrofisici</span></h1>
+    <p class="descrizione"><strong>Contenuti extra:</strong> qui trovi siti web, gallerie di immagini e risorse multimediali che arricchiscono il viaggio nel cosmo insieme a Emma.</p>
+  </header>
+
+  <svg class="cielo" viewBox="0 0 1000 420" role="img" aria-label="Un cielo stellato con costellazioni, la Luna e un pianeta con gli anelli"><path d="M0 10 Q250 -4 500 10 T1000 10 L1000 400 L1000 408.3 L975 404.5 L950 398.8 L925 393.6 L900 391.1 L875 392.3 L850 396.7 L825 402.5 L800 407.3 L775 409.0 L750 407.0 L725 402.0 L700 396.3 L675 392.0 L650 391.1 L625 393.9 L600 399.3 L575 404.9 L550 408.5 L525 408.5 L500 405.0 L475 399.4 L450 394.0 L425 391.2 L400 392.0 L375 396.1 L350 401.9 L325 406.9 L300 409.0 L275 407.3 L250 402.6 L225 396.8 L200 392.3 L175 391.1 L150 393.5 L125 398.7 L100 404.4 L75 408.3 L50 408.7 L25 405.5 L0 400.0 Z" fill="#4f8ea4"/><path d="M300 70 L350 110 L410 95 L460 140 L430 190" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round" opacity=".8"/><circle cx="300" cy="70" r="4" fill="#ffffff"/><circle cx="350" cy="110" r="4" fill="#ffffff"/><circle cx="410" cy="95" r="4" fill="#ffffff"/><circle cx="460" cy="140" r="4" fill="#ffffff"/><circle cx="430" cy="190" r="4" fill="#ffffff"/><path d="M560 280 L610 250 L670 270 L700 330" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round" opacity=".8"/><circle cx="560" cy="280" r="4" fill="#ffffff"/><circle cx="610" cy="250" r="4" fill="#ffffff"/><circle cx="670" cy="270" r="4" fill="#ffffff"/><circle cx="700" cy="330" r="4" fill="#ffffff"/><path d="M90 300 L140 330 L200 310" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round" opacity=".8"/><circle cx="90" cy="300" r="4" fill="#ffffff"/><circle cx="140" cy="330" r="4" fill="#ffffff"/><circle cx="200" cy="310" r="4" fill="#ffffff"/><path d="M520 60 C 560 20, 640 100, 690 60 S 780 30, 820 70" fill="none" stroke="#94c4d6" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/><ellipse cx="780" cy="190" rx="120" ry="30" fill="none" stroke="#0a1418" stroke-width="10" transform="rotate(-16 780 190)"/><circle cx="780" cy="190" r="72" fill="#f05d23"/><path d="M714 166 Q780 150 846 166" stroke="#0a1418" stroke-width="5" fill="none" opacity=".25"/><path d="M708 196 Q780 182 852 196" stroke="#0a1418" stroke-width="5" fill="none" opacity=".25"/><path d="M668 230 A120 30 0 0 0 900 165" fill="none" stroke="#0a1418" stroke-width="10" transform="rotate(-16 780 190)"/><circle cx="170" cy="130" r="48" fill="#ffffff" stroke="#0a1418" stroke-width="4"/><circle cx="156" cy="118" r="9" fill="none" stroke="#0a1418" stroke-width="3"/><circle cx="186" cy="136" r="12" fill="none" stroke="#0a1418" stroke-width="3"/><circle cx="162" cy="150" r="6" fill="none" stroke="#0a1418" stroke-width="3"/><path d="M899 346 Q900.96 351.04 906 353 Q900.96 354.96 899 360 Q897.04 354.96 892 353 Q897.04 351.04 899 346Z" fill="#ffffff"/><path d="M587 163 Q590.08 170.92 598 174 Q590.08 177.08 587 185 Q583.92 177.08 576 174 Q583.92 170.92 587 163Z" fill="#ffffff"/><path d="M43 234 Q44.96 239.04 50 241 Q44.96 242.96 43 248 Q41.04 242.96 36 241 Q41.04 239.04 43 234Z" fill="#ffffff"/><path d="M111 257 Q114.92 267.08 125 271 Q114.92 274.92 111 285 Q107.08 274.92 97 271 Q107.08 267.08 111 257Z" fill="#ffffff"/><path d="M512 269 Q515.08 276.92 523 280 Q515.08 283.08 512 291 Q508.92 283.08 501 280 Q508.92 276.92 512 269Z" fill="#ffffff"/><path d="M377 79 Q379.52 85.48 386 88 Q379.52 90.52 377 97 Q374.48 90.52 368 88 Q374.48 85.48 377 79Z" fill="#ffffff"/><path d="M562 311 Q565.08 318.92 573 322 Q565.08 325.08 562 333 Q558.92 325.08 551 322 Q558.92 318.92 562 311Z" fill="#ffffff"/><path d="M184 291 Q187.08 298.92 195 302 Q187.08 305.08 184 313 Q180.92 305.08 173 302 Q180.92 298.92 184 291Z" fill="#ffffff"/><path d="M577 44 Q580.92 54.08 591 58 Q580.92 61.92 577 72 Q573.08 61.92 563 58 Q573.08 54.08 577 44Z" fill="#ffffff"/><path d="M294 224 Q295.96 229.04 301 231 Q295.96 232.96 294 238 Q292.04 232.96 287 231 Q292.04 229.04 294 224Z" fill="#ffffff"/><path d="M339 71 Q340.96 76.04 346 78 Q340.96 79.96 339 85 Q337.04 79.96 332 78 Q337.04 76.04 339 71Z" fill="#f05d23"/><path d="M187 355 Q188.96 360.04 194 362 Q188.96 363.96 187 369 Q185.04 363.96 180 362 Q185.04 360.04 187 355Z" fill="#f05d23"/><path d="M242 25 Q244.52 31.48 251 34 Q244.52 36.52 242 43 Q239.48 36.52 233 34 Q239.48 31.48 242 25Z" fill="#ffffff"/><path d="M536 359 Q537.96 364.04 543 366 Q537.96 367.96 536 373 Q534.04 367.96 529 366 Q534.04 364.04 536 359Z" fill="#ffffff"/><path d="M45 284 Q48.92 294.08 59 298 Q48.92 301.92 45 312 Q41.08 301.92 31 298 Q41.08 294.08 45 284Z" fill="#ffffff"/><path d="M65 111 Q67.52 117.48 74 120 Q67.52 122.52 65 129 Q62.48 122.52 56 120 Q62.48 117.48 65 111Z" fill="#f05d23"/><path d="M923 96 Q924.96 101.04 930 103 Q924.96 104.96 923 110 Q921.04 104.96 916 103 Q921.04 101.04 923 96Z" fill="#ffffff"/><path d="M420 72 Q423.92 82.08 434 86 Q423.92 89.92 420 100 Q416.08 89.92 406 86 Q416.08 82.08 420 72Z" fill="#ffffff"/><path d="M681 303 Q683.52 309.48 690 312 Q683.52 314.52 681 321 Q678.48 314.52 672 312 Q678.48 309.48 681 303Z" fill="#ffffff"/><path d="M430 125 Q431.96 130.04 437 132 Q431.96 133.96 430 139 Q428.04 133.96 423 132 Q428.04 130.04 430 125Z" fill="#ffffff"/><path d="M343 206 Q346.92 216.08 357 220 Q346.92 223.92 343 234 Q339.08 223.92 329 220 Q339.08 216.08 343 206Z" fill="#ffffff"/><path d="M185 244 Q188.08 251.92 196 255 Q188.08 258.08 185 266 Q181.92 258.08 174 255 Q181.92 251.92 185 244Z" fill="#ffffff"/><path d="M251 207 Q254.92 217.08 265 221 Q254.92 224.92 251 235 Q247.08 224.92 237 221 Q247.08 217.08 251 207Z" fill="#f05d23"/><path d="M959 112 Q962.08 119.92 970 123 Q962.08 126.08 959 134 Q955.92 126.08 948 123 Q955.92 119.92 959 112Z" fill="#f05d23"/><path d="M52 341 Q55.92 351.08 66 355 Q55.92 358.92 52 369 Q48.08 358.92 38 355 Q48.08 351.08 52 341Z" fill="#ffffff"/><path d="M645 277 Q646.96 282.04 652 284 Q646.96 285.96 645 291 Q643.04 285.96 638 284 Q643.04 282.04 645 277Z" fill="#f05d23"/><circle cx="555" cy="212" r="2" fill="#ffffff"/><circle cx="891" cy="52" r="1.5" fill="#ffffff"/><circle cx="380" cy="27" r="2" fill="#0a1418"/><circle cx="414" cy="269" r="2" fill="#ffffff"/><circle cx="922" cy="79" r="1.5" fill="#ffffff"/><circle cx="879" cy="264" r="2.5" fill="#ffffff"/><circle cx="538" cy="272" r="2" fill="#ffffff"/><circle cx="885" cy="381" r="1.5" fill="#0a1418"/><circle cx="374" cy="246" r="1.5" fill="#ffffff"/><circle cx="565" cy="181" r="1.5" fill="#ffffff"/><circle cx="470" cy="169" r="1.5" fill="#ffffff"/><circle cx="206" cy="226" r="2.5" fill="#ffffff"/><circle cx="187" cy="206" r="2.5" fill="#0a1418"/><circle cx="364" cy="380" r="2.5" fill="#0a1418"/><circle cx="652" cy="82" r="1.5" fill="#0a1418"/><circle cx="189" cy="27" r="2.5" fill="#0a1418"/><circle cx="146" cy="287" r="2" fill="#0a1418"/><circle cx="299" cy="310" r="1.5" fill="#ffffff"/><circle cx="601" cy="236" r="2" fill="#ffffff"/><circle cx="617" cy="215" r="2" fill="#0a1418"/><circle cx="365" cy="258" r="2.5" fill="#0a1418"/><circle cx="917" cy="134" r="2.5" fill="#0a1418"/><circle cx="769" cy="323" r="1.5" fill="#ffffff"/><circle cx="397" cy="284" r="2.5" fill="#0a1418"/><circle cx="424" cy="35" r="2.5" fill="#ffffff"/><circle cx="473" cy="79" r="2" fill="#ffffff"/><circle cx="251" cy="135" r="2.5" fill="#ffffff"/><circle cx="447" cy="83" r="2" fill="#0a1418"/><circle cx="498" cy="26" r="2.5" fill="#0a1418"/><circle cx="429" cy="242" r="2" fill="#ffffff"/><circle cx="658" cy="177" r="1.5" fill="#ffffff"/><circle cx="385" cy="41" r="1.5" fill="#ffffff"/><circle cx="393" cy="376" r="2.5" fill="#0a1418"/><circle cx="705" cy="264" r="2" fill="#0a1418"/><circle cx="175" cy="240" r="1.5" fill="#0a1418"/><circle cx="746" cy="359" r="2" fill="#ffffff"/><circle cx="683" cy="377" r="2" fill="#ffffff"/><circle cx="618" cy="294" r="2.5" fill="#ffffff"/><circle cx="531" cy="92" r="2" fill="#ffffff"/><circle cx="273" cy="124" r="2" fill="#0a1418"/><circle cx="929" cy="218" r="2" fill="#0a1418"/><circle cx="568" cy="349" r="1.5" fill="#ffffff"/><circle cx="685" cy="366" r="2.5" fill="#ffffff"/><circle cx="256" cy="369" r="2.5" fill="#ffffff"/><circle cx="823" cy="371" r="1.5" fill="#0a1418"/><circle cx="477" cy="362" r="1.5" fill="#0a1418"/><circle cx="423" cy="252" r="1.5" fill="#ffffff"/><circle cx="912" cy="261" r="2.5" fill="#ffffff"/><circle cx="654" cy="68" r="1.5" fill="#ffffff"/><circle cx="70" cy="262" r="1.5" fill="#ffffff"/><circle cx="966" cy="20" r="2" fill="#ffffff"/><circle cx="568" cy="229" r="1.5" fill="#0a1418"/><circle cx="28" cy="73" r="1.5" fill="#ffffff"/><circle cx="643" cy="363" r="2.5" fill="#ffffff"/><circle cx="18" cy="201" r="2" fill="#ffffff"/></svg>
+
+  <main class="scheda risorse">
+    <h2>Laboratori</h2>
+    <ul class="elenco">
+      <li><a href="https://science.nasa.gov/solar-system/planets/" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 2">2</span><span class="voce"><span class="nome">I pianeti del Sistema solare</span><span class="fonte">NASA · sito</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://science.nasa.gov/moon/moon-phases/" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 4">4</span><span class="voce"><span class="nome">Fasi lunari</span><span class="fonte">NASA · sito</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://science.nasa.gov/mission/hubble/science/universe-uncovered/hubble-deep-fields/" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 7">7</span><span class="voce"><span class="nome">Hubble Ultra Deep Field (HUDF)</span><span class="fonte">NASA · sito</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://skyserver.sdss.org/dr17/VisualTools/navi" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 7">7</span><span class="voce"><span class="nome">Sloan Digital Sky Survey (SDSS)</span><span class="fonte">SDSS SkyServer · mappa interattiva</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://ntrs.nasa.gov/citations/19890003142" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 8">8</span><span class="voce"><span class="nome">Atlante delle Galassie</span><span class="fonte">NASA, archivio tecnico · documento</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://wwwmpa.mpa-garching.mpg.de/galform/virgo/millennium/galseq_D_063.jpg" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 9">9</span><span class="voce"><span class="nome">Cosmic web</span><span class="fonte">Max-Planck-Institut für Astrophysik · immagine</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+      <li><a href="https://www.youtube.com/watch?v=QyDcTbR-kEA&amp;t=9s" target="_blank" rel="noopener">
+        <span class="num" aria-label="Laboratorio 12">12</span><span class="voce"><span class="nome">Buchi neri che si scontrano</span><span class="fonte">LIGO · video</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+    </ul>
+
+    <h2>Che cosa dice l'esperto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5Q13.6 10.4 22.5 12Q13.6 13.6 12 22.5Q10.4 13.6 1.5 12Q10.4 10.4 12 1.5Z"/></svg></h2>
+    <ul class="elenco">
+      <li><a href="https://www.youtube.com/watch?v=TF8THY5spmo" target="_blank" rel="noopener">
+        <span class="num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="voce"><span class="nome">Orbite delle stelle</span><span class="fonte">ESO · video</span></span><svg class="vai" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M8 5h7v7"/></svg></a></li>
+    </ul>
+
+    <div class="piede">
+      <p>Scienza Express edizioni · Via San Michele 10, Trieste</p>
+      <p>info@scienzaexpress.it</p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
